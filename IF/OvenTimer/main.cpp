@@ -8,22 +8,19 @@ int main()
 	int mMin{ 0 };
 	int input{ 0 };
 
-	int h_r{ 0 };
-	int m_r{ 0 };
 
 	cin >> mHour >> mMin >> input;
 	
-	h_r = mHour;
-	m_r = mMin + input;
+	mMin += input;
 
-	if (m_r > 59)
+	while (mMin >= 60)
 	{
-		h_r += m_r / 60;
-		m_r %= 60;
+		mMin -= 60;
+		mHour++;
 	}
-	h_r %= 24;
+	mHour %= 24;
 
-	cout << h_r << " "<< m_r << endl;
+	cout << mHour << " "<< mMin << endl;
 	
 	return 0;
 }
